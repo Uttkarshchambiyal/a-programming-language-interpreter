@@ -1,0 +1,17 @@
+{
+  "name": "flux-lang",
+  "version": "1.0.0",
+  "description": "Flux — a small programming language with pipeline syntax",
+  "main": "src/repl.js",
+  "type": "module",
+  "bin": {
+    "flux": "./src/repl.js"
+  },
+  "scripts": {
+    "start": "node src/repl.js",
+    "run": "node src/repl.js",
+    "test": "node --test tests/"
+  },
+  "keywords": ["programming-language", "interpreter", "flux"],
+  "license": "MIT"
+}
