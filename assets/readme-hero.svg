@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Every language starts with a token.</title>
+  <desc id="desc">A JavaScript interpreter learning project. Source code let score = 42; becomes LET, IDENTIFIER, ASSIGN, NUMBER and SEMICOLON tokens. Current stage: building the lexer.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 H 0 V 32" fill="none" stroke="#faf8ed" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="560" rx="24" fill="#141916"/>
+  <rect width="1280" height="560" rx="24" fill="url(#grid)"/>
+  <path d="M 56 103 H 1224" stroke="#343c35"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect x="56" y="44" width="38" height="32" rx="7" fill="#d9f991"/>
+    <text x="64" y="66" font-size="19" font-weight="700" fill="#141916">&gt;_</text>
+    <text x="111" y="65" font-size="13" letter-spacing="1.7" fill="#faf8ed">A PROGRAMMING LANGUAGE INTERPRETER</text>
+    <circle cx="1058" cy="60" r="4" fill="#d9f991"/>
+    <text x="1073" y="65" font-size="12" letter-spacing="1" fill="#c5cbbf">IN PROGRESS</text>
+    <text x="56" y="160" font-size="12" letter-spacing="2" fill="#b5bea9">01 / THE LEXER</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="65" letter-spacing="-2.5" fill="#faf8ed">
+    <text x="52" y="245">Every language</text>
+    <text x="52" y="320">starts with</text>
+    <text x="52" y="395" fill="#d9f991">a token.</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#b5bea9">
+    <text x="56" y="445">Building an interpreter. Understanding each step.</text>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect x="704" y="150" width="520" height="110" rx="12" fill="#202721" stroke="#424b3e"/>
+    <circle cx="728" cy="174" r="4" fill="#d9f991"/>
+    <circle cx="743" cy="174" r="4" fill="#68745f"/>
+    <circle cx="758" cy="174" r="4" fill="#424b3e"/>
+    <text x="1198" y="179" font-size="10" text-anchor="end" letter-spacing="1.2" fill="#b5bea9">SOURCE</text>
+    <text x="728" y="228" font-size="26" fill="#faf8ed"><tspan fill="#d9f991">let</tspan> score = <tspan fill="#eac18d">42</tspan>;</text>
+    <path d="M 964 260 V 291 M 958 285 L 964 291 L 970 285" fill="none" stroke="#d9f991" stroke-width="1.5"/>
+    <rect x="704" y="310" width="520" height="130" rx="12" fill="#d9f991"/>
+    <text x="728" y="339" font-size="10" letter-spacing="1.6" fill="#465830">TOKENS / LINE 1</text>
+    <g font-size="11" fill="#203014">
+      <rect x="728" y="359" width="49" height="32" rx="5" fill="#c4e77e"/>
+      <text x="752" y="380" text-anchor="middle">LET</text>
+      <rect x="785" y="359" width="109" height="32" rx="5" fill="#c4e77e"/>
+      <text x="839" y="380" text-anchor="middle">IDENTIFIER</text>
+      <rect x="902" y="359" width="68" height="32" rx="5" fill="#c4e77e"/>
+      <text x="936" y="380" text-anchor="middle">ASSIGN</text>
+      <rect x="978" y="359" width="68" height="32" rx="5" fill="#c4e77e"/>
+      <text x="1012" y="380" text-anchor="middle">NUMBER</text>
+      <rect x="1054" y="359" width="102" height="32" rx="5" fill="#c4e77e"/>
+      <text x="1105" y="380" text-anchor="middle">SEMICOLON</text>
+    </g>
+    <text x="728" y="419" font-size="12" fill="#465830">characters → structure → understanding</text>
+    <path d="M 56 490 H 1224" stroke="#343c35"/>
+    <text x="56" y="524" font-size="11" letter-spacing="1.3" fill="#b5bea9">JAVASCRIPT / NODE.JS / LEARN BY BUILDING</text>
+    <text x="1224" y="524" text-anchor="end" font-size="11" letter-spacing="1.3" fill="#d9f991">SOURCE → TOKENS → AST → RESULT</text>
+  </g>
+</svg>
