@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "readme"
-WIDTH, HEIGHT = 800, 3020
+WIDTH, HEIGHT = 800, 2200
 FRAMES = 64
 WHITE, TEXT, MUTED, EDGE = 250, 220, 156, 62
 
@@ -109,9 +109,9 @@ def screen(d, top, bottom, label, right):
         for x in range(58, 746, 8):
             d.rectangle((x, y, x + 1, y + 1), fill=15)
     d.rectangle((66, top + 20, 734, top + 61), fill=3)
-    text(d, (72, top + 24), label, 18, MUTED)
-    length = d.textlength(right, font=font(16))
-    text(d, (728 - length, top + 26), right, 16, MUTED)
+    text(d, (72, top + 22), label, 24, TEXT)
+    length = d.textlength(right, font=font(18))
+    text(d, (728 - length, top + 26), right, 18, MUTED)
     d.line((70, top + 66, 730, top + 66), fill=EDGE)
 
 
@@ -135,85 +135,64 @@ def static_scene():
     text(d, (70, 44), "LANGUAGE LAB / FIELD UNIT 001", 18, MUTED)
     text(d, (596, 44), "POWER", 16, MUTED)
 
-    screen(d, 92, 682, "00 / HELLO, WORLD", "8 FPS / 1-BIT SOUL")
-    center(d, 184, "A PROGRAMMING LANGUAGE", 26, WHITE)
-    pixel_text(d, "INTERPRETER", 92, 234, 9)
-    center(d, 322, "A little machine. A language in the making.", 22)
-    # LCD playfield: a pixel pet and crawling source fragments are added per frame.
+    screen(d, 92, 544, "00 / HELLO", "JAVASCRIPT / NODE.JS")
+    center(d, 182, "A PROGRAMMING LANGUAGE", 28, WHITE)
+    pixel_text(d, "INTERPRETER", 140, 230, 8)
+    # A smaller playfield keeps the companion without a large empty hero.
     for x in range(80, 724, 12):
-        d.rectangle((x, 532, x + 3, 534), fill=70)
-    center(d, 570, "FEED IT SOURCE. WATCH IT THINK.", 23, WHITE)
-    center(d, 620, "JAVASCRIPT / NODE.JS / WORK IN PROGRESS", 18, MUTED)
+        d.rectangle((x, 440, x + 3, 442), fill=70)
+    center(d, 482, "ONE TOKEN AT A TIME.", 28, WHITE)
 
-    screen(d, 706, 1288, "01 / SOURCE TO TOKENS", "LEXER / IN PROGRESS")
-    d.rounded_rectangle((72, 798, 728, 866), radius=8, fill=13, outline=EDGE)
-    text(d, (94, 815), "> let score = 42;", 29, WHITE)
-    text(d, (96, 894), "TYPE", 17, MUTED)
-    text(d, (418, 894), "VALUE", 17, MUTED)
-    text(d, (635, 894), "LINE", 17, MUTED)
-    rows = [("LET", '"let"'), ("IDENTIFIER", '"score"'), ("ASSIGN", '"="'),
-            ("NUMBER", "42"), ("SEMICOLON", '";"'), ("EOF", "null")]
+    screen(d, 568, 1102, "01 / TOKENS", "LEXER / IN PROGRESS")
+    d.rounded_rectangle((72, 658, 728, 724), radius=8, fill=13, outline=EDGE)
+    text(d, (94, 672), "> let score = 42;", 32, WHITE)
+    text(d, (96, 750), "TYPE", 21, MUTED)
+    text(d, (418, 750), "VALUE", 21, MUTED)
+    text(d, (635, 750), "LINE", 21, MUTED)
+    rows = [("LET", '\"let\"'), ("IDENTIFIER", '\"score\"'), ("ASSIGN", '\"=\"'),
+            ("NUMBER", "42"), ("SEMICOLON", '\";\"'), ("EOF", "null")]
     for i, (kind, value) in enumerate(rows):
-        y = 936 + i * 44
-        d.rectangle((92, y - 1, 707, y + 31), fill=3)
-        text(d, (96, y), kind, 23, WHITE)
-        text(d, (418, y), value, 23)
-        text(d, (654, y), "1", 23, MUTED)
-    center(d, 1228, "Characters in. Meaningful pieces out.", 22, MUTED)
+        y = 792 + i * 40
+        d.rectangle((92, y - 1, 707, y + 35), fill=3)
+        text(d, (96, y), kind, 27, WHITE)
+        text(d, (418, y), value, 27)
+        text(d, (654, y), "1", 27, MUTED)
+    center(d, 1050, "Source in. Six tokens out.", 26, MUTED)
 
-    screen(d, 1312, 1800, "02 / INSIDE THE MACHINE", "THE PLAN / FOUR STAGES")
+    screen(d, 1126, 1670, "02 / BUILD STATUS", "EARLY STAGE")
     stages = [
-        ("01", "LEXER", "Source -> tokens", "IN PROGRESS"),
-        ("02", "PARSER", "Tokens -> syntax tree", "STARTED"),
+        ("01", "LEXER", "Characters -> tokens", "IN PROGRESS"),
+        ("02", "PARSER", "AST + token helpers", "STARTED"),
         ("03", "SCOPES", "Names -> bindings", "PLANNED"),
         ("04", "EVALUATOR", "Syntax tree -> result", "PLANNED"),
     ]
     for i, (number, name, description, state) in enumerate(stages):
-        y = 1402 + i * 88
-        d.rounded_rectangle((96, y, 728, y + 74), radius=8, fill=8, outline=EDGE)
-        text(d, (112, y + 10), number, 22, MUTED)
-        text(d, (163, y + 8), name, 24, WHITE)
-        text(d, (163, y + 42), description, 19, MUTED)
-        length = d.textlength(state, font=font(16))
-        text(d, (710 - length, y + 12), state, 16, TEXT if i < 2 else MUTED)
-    d.line((79, 1438, 79, 1703), fill=EDGE, width=2)
+        y = 1214 + i * 76
+        d.rounded_rectangle((96, y, 728, y + 68), radius=8, fill=8, outline=EDGE)
+        text(d, (112, y + 8), number, 24, MUTED)
+        text(d, (163, y + 6), name, 28, WHITE)
+        text(d, (163, y + 39), description, 22, MUTED)
+        length = d.textlength(state, font=font(18))
+        text(d, (710 - length, y + 12), state, 18, TEXT if i < 2 else MUTED)
+    d.line((79, 1248, 79, 1476), fill=EDGE, width=2)
+    copy(d, 74, 1540, [
+        "NEXT: token errors + expression parsing.",
+        "Then scopes, evaluator, tests + REPL.",
+    ], size=26, leading=42)
 
-    screen(d, 1824, 2420, "03 / THE BUILD LOG", "SMALL STEPS / REAL CODE")
-    text(d, (74, 1916), "THE LEXER HAS LEARNED", 24, WHITE, True)
-    copy(d, 74, 1960, [
-        "Numbers, strings, booleans, identifiers.",
-        "Operators, delimiters + line tracking.",
-    ])
-    text(d, (74, 2056), "THE PARSER IS WAKING UP", 24, WHITE, True)
-    copy(d, 74, 2100, [
-        "AST helpers + peek / advance / expect.",
-        "Full parsing and execution come next.",
-    ])
-    d.line((74, 2190, 726, 2190), fill=EDGE)
-    text(d, (74, 2214), "NEXT IN THE QUEUE", 24, WHITE, True)
-    copy(d, 106, 2262, [
-        "Finish token types + lexer errors.",
-        "Expression parsing + precedence.",
-        "Scopes, evaluator, tests + REPL.",
-    ], leading=38)
+    screen(d, 1694, 2034, "03 / RUN IT", "NO NPM DEPENDENCIES")
+    text(d, (74, 1790), "From the repository root:", 28, WHITE)
+    d.rounded_rectangle((72, 1844, 728, 1918), radius=8, fill=13, outline=EDGE)
+    text(d, (90, 1862), "$ node docs/lexer-demo.cjs", 30, WHITE)
+    center(d, 1964, "Full interpreter still in progress.", 26, MUTED)
 
-    screen(d, 2444, 2838, "04 / BOOT SEQUENCE", "NODE.JS + GIT")
-    text(d, (74, 2540), "NO NPM DEPENDENCIES. JUST CURIOSITY.", 23, WHITE, True)
-    copy(d, 74, 2592, [
-        "Clone this repo. Open its root folder.",
-        "Run the included lexer walkthrough:",
-    ])
-    d.rounded_rectangle((72, 2682, 728, 2748), radius=8, fill=13, outline=EDGE)
-    text(d, (90, 2700), "$ node docs/lexer-demo.cjs", 26, WHITE)
-    center(d, 2782, "No CLI or full interpreter yet. Built to learn.", 21, MUTED)
-
-    # Hardware footer; the entire image links to the accessible, copyable guide.
-    for x, letter, label in [(156, "A", "READ"), (370, "B", "TRACE"), (584, "C", "BUILD")]:
-        d.ellipse((x, 2860, x + 52, 2912), fill=18, outline=112, width=2)
-        text(d, (x + 19, 2874), letter, 18, WHITE)
-        text(d, (x + 66, 2877), label, 16, MUTED)
-    center(d, 2940, "OPEN THIS CONSOLE FOR TEXT + COPYABLE COMMANDS", 17, TEXT)
-    center(d, 2972, "BUILT BY UTTKARSH CHAMBIYAL / ONE TOKEN AT A TIME", 14, MUTED)
+    # One linked console; the full text and commands remain in the guide.
+    for x, letter, label in [(150, "A", "READ"), (362, "B", "TRACE"), (574, "C", "BUILD")]:
+        d.ellipse((x, 2056, x + 48, 2104), fill=18, outline=112, width=2)
+        text(d, (x + 17, 2067), letter, 20, WHITE)
+        text(d, (x + 60, 2069), label, 20, MUTED)
+    center(d, 2122, "OPEN FOR TEXT + COPYABLE COMMANDS", 22, TEXT)
+    center(d, 2158, "UTTKARSH CHAMBIYAL / LANGUAGE LAB", 18, MUTED)
     return im
 
 
@@ -224,38 +203,34 @@ def animated_scene(base, tick):
     # Calm power light, no full-screen flashes.
     d.ellipse((693, 47, 703, 57), fill=round(170 + 70 * math.cos(phase)))
     # Companion wanders, blinks, and watches source bugs crawl through its world.
-    x = round(352 + 91 * math.sin(phase))
-    y = 420 - (8 if tick % 16 < 4 else 0)
+    x = round(370 + 91 * math.sin(phase))
+    y = 354 - (5 if tick % 16 < 4 else 0)
     flip = math.cos(phase) < 0
-    bitmap(d, ANTENNA, x, y, 7, flip=flip)
-    bitmap(d, BODY, x, y + 14, 7)
+    bitmap(d, ANTENNA, x, y, 5, flip=flip)
+    bitmap(d, BODY, x, y + 10, 5)
     face = [(4, "...##..##..."), (6, ".....##.....")] if tick % 32 in (12, 13) else [
         (3, "...#....#..."), (4, "..#.#..#.#.."), (6, "....#..#...."), (7, ".....##.....")]
     for row, pattern in face:
-        bitmap(d, [pattern], x, y + 14 + row * 7, 7, flip=flip)
-    bitmap(d, FEET[(tick // 2) % 2], x, y + 84, 7, flip=flip)
+        bitmap(d, [pattern], x, y + 10 + row * 5, 5, flip=flip)
+    bitmap(d, FEET[(tick // 2) % 2], x, y + 60, 5, flip=flip)
     for offset in (0, 1):
         bx = 100 + ((tick * 4 + offset * 340) % 560)
-        bitmap(d, BUG[(tick // 2) % 2], bx, 493 - offset * 40, 4, 156)
-    bitmap(d, HEART, x + 24, 380 + round(4 * math.sin(phase)), 4, TEXT)
+        bitmap(d, BUG[(tick // 2) % 2], bx, 416 - offset * 26, 4, 156)
+    bitmap(d, HEART, x + 18, 324 + round(4 * math.sin(phase)), 3, TEXT)
     # Tokens stay readable; only the read-head moves down the table.
     row = (tick // 8) % 6
-    y = 940 + row * 44
+    y = 798 + row * 40
     d.polygon([(76, y), (83, y + 7), (76, y + 14)], fill=WHITE)
     # The planned pipeline is a diagram, not claimed runtime behavior.
-    packet_y = 1438 + round(265 * (tick / (FRAMES - 1)))
+    packet_y = 1248 + round(228 * (tick / (FRAMES - 1)))
     d.rectangle((75, packet_y - 5, 83, packet_y + 5), fill=WHITE)
-    # Three queue slots; softly traveling activity markers, no fake percentages.
-    for i in range(3):
-        c = WHITE if (tick // 8) % 3 == i else 76
-        d.rectangle((76, 2273 + i * 38, 84, 2281 + i * 38), outline=c, width=2)
     # A terminal cursor and footer speaker cells complete the animated housing.
     if tick % 12 < 6:
-        cursor_x = round(90 + d.textlength("$ node docs/lexer-demo.cjs", font=font(26))) + 12
-        d.rectangle((cursor_x, 2702, cursor_x + 10, 2729), fill=WHITE)
+        cursor_x = round(90 + d.textlength("$ node docs/lexer-demo.cjs", font=font(30))) + 12
+        d.rectangle((cursor_x, 1866, cursor_x + 10, 1896), fill=WHITE)
     for i in range(5):
         h = 3 + round(8 * (1 + math.sin(phase + i)))
-        d.rectangle((716 + i * 4, 2889 - h, 717 + i * 4, 2889), fill=100)
+        d.rectangle((716 + i * 4, 2085 - h, 717 + i * 4, 2085), fill=100)
     return im
 
 

@@ -113,7 +113,7 @@ Syntax checks confirm that files parse. The walkthrough checks one input; neithe
 
 ## Edit the animated README
 
-The editable source is [scripts/render_readme.py](../scripts/render_readme.py). It draws one continuous black console containing every README section: the pet, token walkthrough, planned pipeline, build log, and boot instructions. All colors are grayscale. Essential text stays visible in every frame.
+The editable source is [scripts/render_readme.py](../scripts/render_readme.py). It draws a compact 800 × 2200 black console displayed at up to 720 pixels wide, with larger type and four concise sections: the pet, token walkthrough, build status, and boot instructions. The full project details stay on this page. All colors are grayscale. Essential text stays visible in every frame.
 
 To regenerate the assets, use Python 3.10+ and Pillow 10.1+ in a virtual environment:
 
